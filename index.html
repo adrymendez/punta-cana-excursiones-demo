@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Demo de plataforma para descubrir y reservar excursiones, tours y experiencias turísticas en Punta Cana, Bávaro y República Dominicana."
+    />
+    <meta name="theme-color" content="#0a8aa2" />
+    <meta property="og:title" content="Excursiones Punta Cana & Bávaro | Demo" />
+    <meta
+      property="og:description"
+      content="Demo de plataforma para descubrir y reservar excursiones, tours y experiencias turísticas en Punta Cana, Bávaro y República Dominicana."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" />
+    <title>Excursiones Punta Cana &amp; Bávaro | Demo</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2306b6d4'/%3E%3Cpath d='M12 38c9-10 16-14 20-14 6 0 11 6 20 14v5H12v-5Zm5-14c2-7 7-12 15-12 7 0 13 6 15 12H17Z' fill='white'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header" id="inicio">
+      <div class="container header-inner">
+        <a href="#inicio" class="brand" aria-label="Ir al inicio">
+          <span class="brand-mark">C</span>
+          <span class="brand-text">
+            <strong>Caribe Excursiones</strong>
+            <small>Punta Cana &amp; Bávaro</small>
+          </span>
+        </a>
+        <span class="demo-tag">DEMO • Plataforma de Excursiones</span>
+
+        <nav class="main-nav" aria-label="Navegación principal" id="mainNav">
+          <a href="#inicio">Inicio</a>
+          <a href="#excursiones">Excursiones</a>
+          <a href="#destinos">Destinos</a>
+          <a href="#nosotros">Nosotros</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+
+        <button class="header-action btn btn-primary" id="openBookingsBtn" type="button">
+          Mis Reservas
+        </button>
+
+        <button
+          class="mobile-menu-toggle"
+          id="mobileMenuToggle"
+          type="button"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <span class="eyebrow">Experiencias premium en el Caribe</span>
+            <h1>Descubre Punta Cana</h1>
+            <p>
+              Excursiones, aventuras y experiencias inolvidables en el Caribe.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#excursiones">Ver Excursiones</a>
+              <button class="btn btn-secondary" type="button" id="heroReserveBtn">Reservar Ahora</button>
+            </div>
+            <div class="hero-meta">
+              <span><i class="fa-solid fa-check"></i> Reserva fácil</span>
+              <span><i class="fa-solid fa-check"></i> Atención personalizada</span>
+              <span><i class="fa-solid fa-check"></i> Experiencias seleccionadas</span>
+            </div>
+          </div>
+
+          <div class="hero-card" aria-label="Resumen de reserva destacada">
+            <div class="card-pill">Top recomendación</div>
+            <h3>Isla Saona</h3>
+            <p>Un día completo de playa, mar cristalino y aventura en una de las paradisiacas islas del Este.</p>
+            <div class="hero-price-row">
+              <span>Desde</span>
+              <strong>US$75</strong>
+            </div>
+            <ul>
+              <li><i class="fa-solid fa-sailboat"></i> Traslado incluido</li>
+              <li><i class="fa-solid fa-utensils"></i> Almuerzo</li>
+              <li><i class="fa-solid fa-water"></i> Snorkel</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="search-wrap" aria-label="Buscador de excursiones">
+        <div class="container">
+          <form class="search-panel" id="searchForm">
+            <div class="field">
+              <label for="searchDestination">Destino</label>
+              <select id="searchDestination" name="destination">
+                <option value="">Todos</option>
+                <option value="Punta Cana">Punta Cana</option>
+                <option value="Bávaro">Bávaro</option>
+                <option value="Cap Cana">Cap Cana</option>
+                <option value="Macao">Macao</option>
+                <option value="Uvero Alto">Uvero Alto</option>
+                <option value="Cabeza de Toro">Cabeza de Toro</option>
+                <option value="Bayahibe">Bayahibe</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="searchCategory">Tipo de actividad</label>
+              <select id="searchCategory" name="activityType">
+                <option value="">Todas</option>
+                <option value="Aventura">Aventura</option>
+                <option value="Playa">Playa</option>
+                <option value="Catamarán">Catamarán</option>
+                <option value="Buggy">Buggy</option>
+                <option value="Cultural">Cultural</option>
+                <option value="Familiar">Familiar</option>
+                <option value="Islas">Islas</option>
+                <option value="Acuática">Acuática</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="searchDate">Fecha</label>
+              <input type="date" id="searchDate" name="date" />
+            </div>
+
+            <button class="btn btn-primary search-btn" type="submit">Buscar Excursiones</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="categories section-spacer" aria-labelledby="categoriesTitle">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow eyebrow-strong">Explora</span>
+            <h2 id="categoriesTitle">¿Qué aventura estás buscando?</h2>
+          </div>
+
+          <div class="category-grid" id="categoryGrid">
+            <button class="category-btn active" type="button" data-category="Todos">
+              <span class="category-icon">🌊</span>
+              <span>Todos</span>
+            </button>
+            <button class="category-btn" type="button" data-category="Islas">
+              <span class="category-icon">🏝</span>
+              <span>Islas</span>
+            </button>
+            <button class="category-btn" type="button" data-category="Catamarán">
+              <span class="category-icon">🚤</span>
+              <span>Catamarán</span>
+            </button>
+            <button class="category-btn" type="button" data-category="Buggy">
+              <span class="category-icon">🏎</span>
+              <span>Buggy</span>
+            </button>
+            <button class="category-btn" type="button" data-category="Acuática">
+              <span class="category-icon">🤿</span>
+              <span>Snorkeling</span>
+            </button>
+            <button class="category-btn" type="button" data-category="Cultural">
+              <span class="category-icon">🐎</span>
+              <span>Caballos</span>
+            </button>
+            <button class="category-btn" type="button" data-category="Aventura">
+              <span class="category-icon">🌴</span>
+              <span>Safari</span>
+            </button>
+            <button class="category-btn" type="button" data-category="Familiar">
+              <span class="category-icon">🎣</span>
+              <span>Pesca</span>
+            </button>
+            <button class="category-btn" type="button" data-category="Playa">
+              <span class="category-icon">🐬</span>
+              <span>Actividades acuáticas</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="excursions section-spacer" id="excursiones">
+        <div class="container">
+          <div class="section-heading split-heading">
+            <div>
+              <span class="eyebrow eyebrow-strong">Selección premium</span>
+              <h2>Excursiones populares</h2>
+            </div>
+            <a class="text-link" href="#contacto">Necesito ayuda</a>
+          </div>
+
+          <div class="excursion-grid" id="excursionGrid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="offers section-spacer" aria-labelledby="offersTitle">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow eyebrow-strong">Ofertas</span>
+            <h2 id="offersTitle">Ofertas especiales</h2>
+          </div>
+
+          <div class="offer-grid">
+            <article class="offer-card offer-card-primary">
+              <div class="offer-mark">10% OFF</div>
+              <h3>Isla Saona</h3>
+              <p>Disfruta de un día completo en el paraíso con un descuento especial para reservas anticipadas.</p>
+            </article>
+            <article class="offer-card">
+              <div class="offer-mark">Oferta especial</div>
+              <h3>Buggy + Playa Macao</h3>
+              <p>Combina aventura off-road con un momento de relajación frente al mar.</p>
+            </article>
+            <article class="offer-card">
+              <div class="offer-mark">Precio especial</div>
+              <h3>Catamarán</h3>
+              <p>Tarifas exclusivas para grupos y familias que desean vivir una experiencia de lujo.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="benefits section-spacer" aria-labelledby="benefitsTitle">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow eyebrow-strong">Confianza</span>
+            <h2 id="benefitsTitle">¿Por qué reservar con nosotros?</h2>
+          </div>
+
+          <div class="benefit-grid">
+            <article class="benefit-item">
+              <div class="benefit-icon"><i class="fa-solid fa-bolt"></i></div>
+              <h3>Reserva rápida</h3>
+            </article>
+            <article class="benefit-item">
+              <div class="benefit-icon"><i class="fa-solid fa-headset"></i></div>
+              <h3>Atención personalizada</h3>
+            </article>
+            <article class="benefit-item">
+              <div class="benefit-icon"><i class="fa-solid fa-shield-heart"></i></div>
+              <h3>Operadores seleccionados</h3>
+            </article>
+            <article class="benefit-item">
+              <div class="benefit-icon"><i class="fa-brands fa-whatsapp"></i></div>
+              <h3>Soporte por WhatsApp</h3>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="destinations section-spacer" id="destinos">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow eyebrow-strong">Destinos</span>
+            <h2>Explora nuestras zonas favoritas</h2>
+          </div>
+
+          <div class="destination-grid" id="destinationGrid"></div>
+        </div>
+      </section>
+
+      <section class="testimonials section-spacer" aria-labelledby="testimonialsTitle">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow eyebrow-strong">Experiencias reales</span>
+            <h2 id="testimonialsTitle">Lo que dicen nuestros viajeros</h2>
+          </div>
+
+          <div class="testimonial-grid" id="testimonialGrid"></div>
+          <p class="demo-note">Datos DEMO para sustitución posterior por testimonios reales.</p>
+        </div>
+      </section>
+
+      <section class="help section-spacer" id="nosotros" aria-labelledby="helpTitle">
+        <div class="container help-box">
+          <div>
+            <span class="eyebrow eyebrow-strong">Asesoramiento</span>
+            <h2 id="helpTitle">¿Necesitas ayuda para elegir?</h2>
+            <p>
+              Cuéntanos qué tipo de experiencia buscas y te ayudamos a encontrar la excursión perfecta.
+            </p>
+          </div>
+          <div class="help-actions">
+            <a class="btn btn-primary" href="#" target="_blank" rel="noreferrer" data-whatsapp-link="true">Hablar por WhatsApp</a>
+            <a class="btn btn-secondary" href="#excursiones">Ver Excursiones</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="reservas section-spacer" aria-labelledby="reservasTitle">
+        <div class="container">
+          <div class="section-heading split-heading">
+            <div>
+              <span class="eyebrow eyebrow-strong">Tus reservas</span>
+              <h2 id="reservasTitle">Mis Reservas</h2>
+            </div>
+            <button class="btn btn-secondary small-btn" type="button" id="viewBookingsBtn">Ver reservas</button>
+          </div>
+
+          <div class="booking-list" id="bookingGrid" aria-live="polite"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contacto">
+      <div class="container footer-grid">
+        <div>
+          <div class="brand footer-brand">
+            <span class="brand-mark">C</span>
+            <span class="brand-text">
+              <strong>Caribe Excursiones</strong>
+              <small>Punta Cana &amp; Bávaro</small>
+            </span>
+          </div>
+          <p>Experiencias únicas para vivir el mejor Caribe con seguridad, calidad y atención personalizada.</p>
+        </div>
+
+        <div>
+          <h3>Excursiones</h3>
+          <ul>
+            <li>Isla Saona</li>
+            <li>Buggy</li>
+            <li>Catamarán</li>
+            <li>Aventuras</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Destinos</h3>
+          <ul>
+            <li>Punta Cana</li>
+            <li>Bávaro</li>
+            <li>Cap Cana</li>
+            <li>Macao</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Ayuda</h3>
+          <ul>
+            <li>Contacto</li>
+            <li>Preguntas frecuentes</li>
+            <li>Política de cancelación</li>
+            <li>Términos y condiciones</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Contacto</h3>
+          <ul>
+            <li><i class="fa-brands fa-whatsapp"></i> WhatsApp</li>
+            <li><i class="fa-solid fa-envelope"></i> hello@caribeexcursiones.com</li>
+            <li><i class="fa-solid fa-location-dot"></i> Punta Cana, República Dominicana</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <p>© 2026 Caribe Excursiones. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+    <a
+      class="floating-whatsapp"
+      href="#"
+      target="_blank"
+      rel="noreferrer"
+      aria-label="Contactar por WhatsApp"
+      title="¿Necesitas ayuda?"
+      data-whatsapp-link="true"
+    >
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <div class="modal" id="detailsModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close="detailsModal"></div>
+      <div class="modal-dialog modal-lg" role="dialog" aria-modal="true" aria-labelledby="detailsTitle">
+        <button class="modal-close" type="button" data-close="detailsModal" aria-label="Cerrar detalles">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div id="detailsModalBody"></div>
+      </div>
+    </div>
+
+    <div class="modal" id="bookingModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close="bookingModal"></div>
+      <div class="modal-dialog modal-md" role="dialog" aria-modal="true" aria-labelledby="bookingTitle">
+        <button class="modal-close" type="button" data-close="bookingModal" aria-label="Cerrar formulario">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="booking-modal-header">
+          <span class="eyebrow eyebrow-strong">Reserva rápida</span>
+          <h3 id="bookingTitle">Completa tus datos</h3>
+        </div>
+
+        <form id="bookingForm" novalidate>
+          <div class="form-grid">
+            <div class="field">
+              <label for="bookingFirstName">Nombre</label>
+              <input id="bookingFirstName" name="firstName" type="text" placeholder="Tu nombre" />
+              <small class="field-error" aria-live="polite"></small>
+            </div>
+
+            <div class="field">
+              <label for="bookingLastName">Apellido</label>
+              <input id="bookingLastName" name="lastName" type="text" placeholder="Tu apellido" />
+              <small class="field-error" aria-live="polite"></small>
+            </div>
+
+            <div class="field">
+              <label for="bookingPhone">Teléfono / WhatsApp</label>
+              <input id="bookingPhone" name="phone" type="tel" placeholder="809-000-0000" />
+              <small class="field-error" aria-live="polite"></small>
+            </div>
+
+            <div class="field">
+              <label for="bookingEmail">Correo electrónico</label>
+              <input id="bookingEmail" name="email" type="email" placeholder="correo@ejemplo.com" />
+              <small class="field-error" aria-live="polite"></small>
+            </div>
+
+            <div class="field">
+              <label for="bookingHotel">Hotel</label>
+              <input id="bookingHotel" name="hotel" type="text" placeholder="Nombre del hotel" />
+              <small class="field-error" aria-live="polite"></small>
+            </div>
+
+            <div class="field">
+              <label for="bookingRoom">Número de habitación</label>
+              <input id="bookingRoom" name="room" type="text" placeholder="Opcional" />
+              <small class="field-error" aria-live="polite"></small>
+            </div>
+
+            <div class="field field-full">
+              <label for="bookingExcursion">Excursión</label>
+              <input id="bookingExcursion" name="excursion" type="text" readonly />
+              <small class="field-error" aria-live="polite"></small>
+            </div>
+
+            <div class="field">
+              <label for="bookingDate">Fecha</label>
+              <input id="bookingDate" name="date" type="date" />
+              <small class="field-error" aria-live="polite"></small>
+            </div>
+
+            <div class="field">
+              <label for="bookingAdults">Adultos</label>
+              <input id="bookingAdults" name="adults" type="number" min="0" value="1" />
+              <small class="field-error" aria-live="polite"></small>
+            </div>
+
+            <div class="field">
+              <label for="bookingChildren">Niños</label>
+              <input id="bookingChildren" name="children" type="number" min="0" value="0" />
+              <small class="field-error" aria-live="polite"></small>
+            </div>
+          </div>
+
+          <div class="booking-summary" aria-live="polite">
+            <div class="summary-row">
+              <span>Adulto</span>
+              <strong id="adultPriceLabel">US$0</strong>
+            </div>
+            <div class="summary-row">
+              <span>Niño</span>
+              <strong id="childPriceLabel">US$0</strong>
+            </div>
+            <div class="summary-row subtotal">
+              <span>Subtotal</span>
+              <strong id="subtotalValue">US$0</strong>
+            </div>
+            <div class="summary-row total">
+              <span>Total</span>
+              <strong id="totalValue">US$0</strong>
+            </div>
+          </div>
+
+          <div class="modal-actions">
+            <button class="btn btn-secondary" type="button" data-close="bookingModal">Cancelar</button>
+            <button class="btn btn-primary" type="submit">Confirmar por WhatsApp</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="bookingsModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close="bookingsModal"></div>
+      <div class="modal-dialog modal-md" role="dialog" aria-modal="true" aria-labelledby="bookingsTitle">
+        <button class="modal-close" type="button" data-close="bookingsModal" aria-label="Cerrar reservas">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="booking-modal-header">
+          <span class="eyebrow eyebrow-strong">Panel</span>
+          <h3 id="bookingsTitle">Mis Reservas</h3>
+        </div>
+
+        <div id="bookingsModalList" class="bookings-modal-list" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" aria-live="polite" aria-atomic="true"></div>
+  </body>
+</html>

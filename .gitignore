@@ -1,0 +1,14 @@
+# Editor / OS
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary / local files
+*.tmp
+*.bak
+
+# Node (not expected, but safe) 
+node_modules/
